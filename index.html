@@ -1,16 +1,79 @@
 <!DOCTYPE html>
 <html>
-<body>
+<head>
+  <title>Nokia Games</title>
+  <meta name="viewport" content="width=240, initial-scale=1.0">
+</head>
 
-<h3>Nokia Games</h3>
+<body style="margin:0;background:black;color:white;font-family:sans-serif;">
 
-<a href="https://zb3.me/freej2me-web/?game=https://archive.org/download/j2me-bounce-tales/Bounce_Tales.jar">
-Bounce Tales
-</a><br><br>
+<!-- PHONE SCREEN -->
+<div style="width:240px;height:320px;margin:auto;border:2px solid #444;position:relative;overflow:hidden;">
 
-<a href="https://zb3.me/freej2me-web/?game=https://archive.org/download/j2me-diamond-rush/Diamond_Rush.jar">
-Diamond Rush
-</a>
+  <!-- HEADER -->
+  <div style="background:#111;padding:6px;text-align:center;font-size:14px;">
+    Games
+  </div>
+
+  <!-- MENU -->
+  <div id="menu" style="height:260px;overflow:hidden;"></div>
+
+  <!-- SOFTKEY BAR -->
+  <div style="position:absolute;bottom:0;width:100%;background:#111;padding:5px;font-size:12px;">
+    <span>Options</span>
+    <span style="float:right">Select</span>
+  </div>
+
+</div>
+
+<script>
+var games = [
+  {name:"Snake", url:"https://playsnake.org/"},
+  {name:"Bounce", url:"https://js13kgames.com/games/bounce-back/index.html"},
+  {name:"Racer", url:"https://codeincomplete.com/games/racer/"},
+  {name:"Mario", url:"https://supermarioplay.com/"}
+];
+
+var selected = 0;
+
+function render(){
+  var html = "";
+  for(var i=0;i<games.length;i++){
+    html += "<div style='padding:10px;border-bottom:1px solid #333;background:" +
+      (i===selected ? "#222" : "black") + "'>" +
+      games[i].name + "</div>";
+  }
+  document.getElementById("menu").innerHTML = html;
+}
+
+function openGame(){
+  window.location.href = games[selected].url;
+}
+
+// KEYPAD SUPPORT (basic + compatible)
+document.onkeydown = function(e){
+  var k = e.keyCode;
+
+  // DOWN (2 or ArrowDown)
+  if(k==40 || k==50){
+    selected = (selected+1)%games.length;
+    render();
+  }
+
+  // UP (8 or ArrowUp)
+  if(k==38 || k==56){
+    selected = (selected-1+games.length)%games.length;
+    render();
+  }
+
+  // SELECT (Enter or 5)
+  if(k==13 || k==53){
+    openGame();
+  }
+};
+
+render();
+</script>
 
 </body>
 </html>
