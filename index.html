@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>J2ME Arcade</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="background:black; color:white; text-align:center; font-family:sans-serif;">
+
+  <h2>🎮 J2ME Arcade</h2>
+  <p>Select a Game</p>
+
+  <button onclick="playGame('https://archive.org/download/j2me-bounce-tales/Bounce_Tales.jar')">
+    Bounce Tales
+  </button><br><br>
+
+  <button onclick="playGame('https://archive.org/download/j2me-diamond-rush/Diamond_Rush.jar')">
+    Diamond Rush
+  </button><br><br>
+
+  <button onclick="playGame('https://archive.org/download/j2me-pop-sands/Prince_of_Persia_Sands_of_Time.jar')">
+    Prince of Persia
+  </button><br><br>
+
+  <div id="gameArea"></div>
+
+  <script>
+    function playGame(url) {
+      document.getElementById("gameArea").innerHTML =
+        '<iframe src="https://zb3.me/freej2me-web/?game=' + url + '" width="240" height="320"></iframe>';
+    }
+  </script>
+
+</body>
+</html>
