@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Browser</title>
+  <meta name="viewport" content="width=240, initial-scale=1.0">
+</head>
+
+<body style="background:black;color:white;font-family:sans-serif;margin:0">
+
+<div style="background:#111;padding:8px;text-align:center">
+  🌐 Browser
+</div>
+
+<!-- QUICK SITES -->
+<a href="https://www.google.com">
+<div style="padding:12px;border-bottom:1px solid #333;">Google</div>
+</a>
+
+<a href="https://www.wikipedia.org">
+<div style="padding:12px;border-bottom:1px solid #333;">Wikipedia</div>
+</a>
+
+<a href="https://m.youtube.com">
+<div style="padding:12px;border-bottom:1px solid #333;">YouTube</div>
+</a>
+
+<a href="https://news.google.com">
+<div style="padding:12px;border-bottom:1px solid #333;">News</div>
+</a>
+
+<!-- SEARCH BOX -->
+<form action="https://www.google.com/search" method="get">
+  <input type="text" name="q" placeholder="Search..." style="width:90%;padding:8px;margin-top:10px;">
+</form>
+
+</body>
+</html>
