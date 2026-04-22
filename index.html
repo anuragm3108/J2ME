@@ -5,69 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body style="background:black;color:white;font-family:sans-serif;margin:0">
+<body style="background:black;color:white;text-align:center;font-family:sans-serif">
 
-<!-- HEADER -->
-<div style="background:#111;padding:10px;text-align:center">
-  🎮 Nokia Games
-</div>
+<h3>🎮 Nokia Games</h3>
 
-<!-- MENU -->
-<div id="menu"></div>
+<a href="https://zb3.me/freej2me-web/?game=https://archive.org/download/j2me-bounce-tales/Bounce_Tales.jar">
+<div style="padding:15px;border-bottom:1px solid #333;">Bounce Tales</div>
+</a>
 
-<script>
-const games = [
-  {
-    name: "Bounce Tales",
-    url: "https://zb3.me/freej2me-web/?game=https://archive.org/download/j2me-bounce-tales/Bounce_Tales.jar"
-  },
-  {
-    name: "Diamond Rush",
-    url: "https://zb3.me/freej2me-web/?game=https://archive.org/download/j2me-diamond-rush/Diamond_Rush.jar"
-  },
-  {
-    name: "Prince of Persia",
-    url: "https://zb3.me/freej2me-web/?game=https://archive.org/download/j2me-pop-sands/Prince_of_Persia_Sands_of_Time.jar"
-  },
-  {
-    name: "Asphalt 4",
-    url: "https://zb3.me/freej2me-web/?game=https://archive.org/download/j2me-asphalt-4/Asphalt_4_Elite_Racing.jar"
-  }
-];
+<a href="https://zb3.me/freej2me-web/?game=https://archive.org/download/j2me-diamond-rush/Diamond_Rush.jar">
+<div style="padding:15px;border-bottom:1px solid #333;">Diamond Rush</div>
+</a>
 
-let selected = 0;
+<a href="https://zb3.me/freej2me-web/?game=https://archive.org/download/j2me-pop-sands/Prince_of_Persia_Sands_of_Time.jar">
+<div style="padding:15px;border-bottom:1px solid #333;">Prince of Persia</div>
+</a>
 
-function renderMenu() {
-  let html = "";
-  games.forEach((g, i) => {
-    html += `<div style="padding:15px;border-bottom:1px solid #333;
-      background:${i===selected ? '#222' : 'black'}">
-      ${g.name}
-    </div>`;
-  });
-  document.getElementById("menu").innerHTML = html;
-}
-
-function openGame() {
-  window.location.href = games[selected].url;
-}
-
-document.addEventListener("keydown", function(e){
-  if(e.key === "ArrowDown"){
-    selected = (selected + 1) % games.length;
-    renderMenu();
-  }
-  if(e.key === "ArrowUp"){
-    selected = (selected - 1 + games.length) % games.length;
-    renderMenu();
-  }
-  if(e.key === "Enter"){
-    openGame();
-  }
-});
-
-renderMenu();
-</script>
+<a href="https://zb3.me/freej2me-web/?game=https://archive.org/download/j2me-asphalt-4/Asphalt_4_Elite_Racing.jar">
+<div style="padding:15px;border-bottom:1px solid #333;">Asphalt 4</div>
+</a>
 
 </body>
 </html>
