@@ -1,35 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>J2ME Arcade</title>
+  <title>Nokia J2ME</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body style="background:black; color:white; text-align:center; font-family:sans-serif;">
+<body style="background:black; color:white; font-family:sans-serif; margin:0;">
 
-  <h2>🎮 J2ME Arcade</h2>
-  <p>Select a Game</p>
+<!-- HEADER -->
+<div style="background:#111; padding:10px; text-align:center; font-weight:bold;">
+  🎮 Games
+</div>
 
-  <button onclick="playGame('https://archive.org/download/j2me-bounce-tales/Bounce_Tales.jar')">
+<!-- MENU -->
+<div id="menu">
+
+  <div onclick="playGame('https://archive.org/download/j2me-bounce-tales/Bounce_Tales.jar')" style="padding:15px; border-bottom:1px solid #333;">
     Bounce Tales
-  </button><br><br>
+  </div>
 
-  <button onclick="playGame('https://archive.org/download/j2me-diamond-rush/Diamond_Rush.jar')">
+  <div onclick="playGame('https://archive.org/download/j2me-diamond-rush/Diamond_Rush.jar')" style="padding:15px; border-bottom:1px solid #333;">
     Diamond Rush
-  </button><br><br>
+  </div>
 
-  <button onclick="playGame('https://archive.org/download/j2me-pop-sands/Prince_of_Persia_Sands_of_Time.jar')">
+  <div onclick="playGame('https://archive.org/download/j2me-pop-sands/Prince_of_Persia_Sands_of_Time.jar')" style="padding:15px; border-bottom:1px solid #333;">
     Prince of Persia
-  </button><br><br>
+  </div>
 
-  <div id="gameArea"></div>
+  <div onclick="playGame('https://archive.org/download/j2me-asphalt-4/Asphalt_4_Elite_Racing.jar')" style="padding:15px; border-bottom:1px solid #333;">
+    Asphalt 4
+  </div>
 
-  <script>
-    function playGame(url) {
-      document.getElementById("gameArea").innerHTML =
-        '<iframe src="https://zb3.me/freej2me-web/?game=' + url + '" width="240" height="320"></iframe>';
-    }
-  </script>
+</div>
+
+<!-- GAME SCREEN -->
+<div id="gameScreen" style="display:none; text-align:center; margin-top:10px;">
+  
+  <div style="margin-bottom:10px;">
+    <button onclick="goBack()" style="padding:8px;">⬅ Back</button>
+  </div>
+
+  <iframe id="gameFrame" width="240" height="320"></iframe>
+
+</div>
+
+<script>
+function playGame(url) {
+  document.getElementById("menu").style.display = "none";
+  document.getElementById("gameScreen").style.display = "block";
+
+  document.getElementById("gameFrame").src =
+    "https://zb3.me/freej2me-web/?game=" + url;
+}
+
+function goBack() {
+  document.getElementById("gameScreen").style.display = "none";
+  document.getElementById("menu").style.display = "block";
+
+  document.getElementById("gameFrame").src = "";
+}
+</script>
 
 </body>
 </html>
